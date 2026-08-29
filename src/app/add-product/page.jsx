@@ -7,9 +7,9 @@ const AddDestinationPage = () => {
         e.preventDefault();
         const formData=new FormData(e.currentTarget);
         const data=Object.fromEntries(formData.entries());
-        // console.log(data);
+        console.log(data);
 
-        const res= await fetch('http://localhost:5000/destination',{
+        const res= await fetch('http://localhost:5000/add-product',{
             method:"POST",
             headers:{
                 'content-type':'application/json'
@@ -30,7 +30,7 @@ const AddDestinationPage = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     {/* Destination Name */}
                     <div className="md:col-span-2">
-                        <TextField name="destinationName" isRequired>
+                        <TextField name="productName" isRequired>
                             <Label>Product Name</Label>
                             <Input placeholder="Hikvision / Dahua" className="rounded-2xl" />
                             <FieldError />
@@ -38,7 +38,7 @@ const AddDestinationPage = () => {
                     </div>
 
                     {/* Country */}
-                    <TextField name="country" isRequired>
+                    <TextField name="productId" isRequired>
                         <Label>ID</Label>
                         <Input placeholder="CV-001/CR-0001/EC-00001/OS-#01" className="rounded-2xl" />
                         <FieldError />
@@ -59,19 +59,19 @@ const AddDestinationPage = () => {
                             </Select.Trigger>
                             <Select.Popover>
                                 <ListBox className=" text-black">
-                                    <ListBox.Item id="Beach" textValue="Beach">
+                                    <ListBox.Item id="Cctv" textValue="Cctv">
                                         CCTV
                                         <ListBox.ItemIndicator />
                                     </ListBox.Item>
-                                    <ListBox.Item id="Mountain" textValue="Mountain">
+                                    <ListBox.Item id="Computer" textValue="Computer">
                                         COMPUTER
                                         <ListBox.ItemIndicator />
                                     </ListBox.Item>
-                                    <ListBox.Item id="City" textValue="City">
+                                    <ListBox.Item id="Electronic" textValue="Electronic">
                                         ELECTRONICS
                                         <ListBox.ItemIndicator />
                                     </ListBox.Item>
-                                    <ListBox.Item id="Adventure" textValue="Adventure">
+                                    <ListBox.Item id="Others" textValue="Others">
                                         OTHERS
                                         <ListBox.ItemIndicator />
                                     </ListBox.Item>
@@ -93,7 +93,7 @@ const AddDestinationPage = () => {
                     </TextField>
 
                     {/* Duration */}
-                    <TextField name="duration" isRequired>
+                    <TextField name="warranty" isRequired>
                         <Label>Warranty</Label>
                         <Input
                             placeholder="365 Days"
@@ -104,7 +104,7 @@ const AddDestinationPage = () => {
 
                     {/* Departure Date */}
                     <div className="md:col-span-2">
-                        <TextField name="departureDate" type="date" isRequired>
+                        <TextField name="submitData" type="date" isRequired>
                             <Label>Add Date</Label>
                             <Input type="date" className="rounded-2xl" />
                             <FieldError />
